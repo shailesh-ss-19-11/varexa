@@ -2,25 +2,191 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b0f1a;
+  --surface: #f6f7fb;
+  --surface-2: #eef0f8;
+  --border: #e3e5f0;
+  --muted: #5b6072;
+
+  --brand-50: #eef1ff;
+  --brand-100: #e0e4ff;
+  --brand-200: #c6ccff;
+  --brand-400: #6d76e8;
+  --brand-500: #4a4fd8;
+  --brand-600: #3936c4;
+  --brand-700: #2e2b9e;
+  --brand-900: #191856;
+
+  --accent-400: #35d0d0;
+  --accent-500: #17b8ba;
+  --accent-600: #0f9698;
+
+  --ink-950: #05070f;
+  --ink-900: #0b0f1a;
+  --ink-800: #121727;
+  --ink-700: #1a2036;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-900: var(--brand-900);
+
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+
+  --color-ink-950: var(--ink-950);
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-hero-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--brand-200);
+  color: var(--ink-950);
+}
+
+.text-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--brand-500) 0%,
+    var(--brand-400) 45%,
+    var(--accent-500) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, white 8%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, white 8%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.glow {
+  background: radial-gradient(
+    60% 60% at 50% 0%,
+    color-mix(in srgb, var(--brand-500) 35%, transparent) 0%,
+    transparent 70%
+  );
 }

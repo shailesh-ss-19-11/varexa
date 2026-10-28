@@ -2,29 +2,31 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0b0f1a;
-  --surface: #f6f7fb;
-  --surface-2: #eef0f8;
-  --border: #e3e5f0;
-  --muted: #5b6072;
+  --foreground: #0b1d44;
+  --surface: #f4f8ff;
+  --surface-2: #e9f1fd;
+  --border: #d3e2f7;
+  --muted: #5a7399;
 
-  --brand-50: #eef1ff;
-  --brand-100: #e0e4ff;
-  --brand-200: #c6ccff;
-  --brand-400: #6d76e8;
-  --brand-500: #4a4fd8;
-  --brand-600: #3936c4;
-  --brand-700: #2e2b9e;
-  --brand-900: #191856;
+  /* Varexa logo palette: light blue -> mid blue -> deep navy */
+  --brand-50: #f0f7ff;
+  --brand-100: #dcebff;
+  --brand-200: #b9d8ff;
+  --brand-300: #86bcff;
+  --brand-400: #3b9dff;
+  --brand-500: #1a80f0;
+  --brand-600: #0a64d8;
+  --brand-700: #0b4dae;
+  --brand-900: #081a52;
 
-  --accent-400: #35d0d0;
-  --accent-500: #17b8ba;
-  --accent-600: #0f9698;
+  --accent-400: #5db0ff;
+  --accent-500: #3b9dff;
+  --accent-600: #0a64d8;
 
-  --ink-950: #05070f;
-  --ink-900: #0b0f1a;
-  --ink-800: #121727;
-  --ink-700: #1a2036;
+  --ink-950: #040c26;
+  --ink-900: #081a52;
+  --ink-800: #0b2570;
+  --ink-700: #123488;
 }
 
 @theme inline {
@@ -38,6 +40,7 @@
   --color-brand-50: var(--brand-50);
   --color-brand-100: var(--brand-100);
   --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
   --color-brand-400: var(--brand-400);
   --color-brand-500: var(--brand-500);
   --color-brand-600: var(--brand-600);
